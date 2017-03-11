@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -19,7 +20,7 @@ import br.edu.faculdadedelta.generic.BaseEntity;
 public class Produto extends BaseEntity<Long>{
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_produto", unique = true, nullable = false)
 	private Long id;
 	
@@ -38,7 +39,7 @@ public class Produto extends BaseEntity<Long>{
 	@Override
 	public Long getId() {
 		// TODO Auto-generated method stub
-		return null;
+		return id;
 	}
 
 	public String getNome() {
@@ -49,9 +50,17 @@ public class Produto extends BaseEntity<Long>{
 		this.nome = nome;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	
+	
+	public String getFabricante() {
+		return fabricante;
 	}
+
+	public void setFabricante(String fabricante) {
+		this.fabricante = fabricante;
+	}
+
+
 
 	
 }
